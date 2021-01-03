@@ -1,4 +1,4 @@
-# Probabiity simulation
+# Probability simulation
 
 ## Summary
 
