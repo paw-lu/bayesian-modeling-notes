@@ -16,3 +16,7 @@ Notes on Bayesian modeling using Python NumPy and PyMC3.
 - [Bayesian Data Science: Probabilistic Programming | SciPy 2019 Tutorial](https://www.youtube.com/watch?v=2wvt6GPZl1U&t=5440s)
 
   Video tutorial of Bayesian modeling using NumPy and PyMC3
+
+- [Probabilistic Programming and Bayesian Methods for Hackers](https://github.com/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers)
+  
+  Interactive textbook on probabilistic programming.
