@@ -18,4 +18,4 @@ def screenshot(context, chapter, name):
     context.run(
         f"mv '{screenshot_dir}' '{doc_dir / relative_new_filepath}'"
     )
-    context.run(f"echo '{relative_new_filepath}' | pbcopy")
+    context.run(f"printf '{relative_new_filepath}' | pbcopy")
