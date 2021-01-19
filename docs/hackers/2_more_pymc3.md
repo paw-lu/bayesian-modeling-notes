@@ -638,7 +638,7 @@ D = challenger_data[:, 1]  # Was it defective or not?
 
 with pm.Model() as model:
     beta = pm.Normal("beta", mu=0, tau=1e-3, testval=0)
-    alpha = pm.Normal("alpha", mu=0, tau=1e3, testval=0)
+    alpha = pm.Normal("alpha", mu=0, tau=1e-3, testval=0)
     p = pm.Deterministic("p", 1.0 / (1.0 + tt.exp(beta * temperature + alpha)))
 ```
 
@@ -768,3 +768,65 @@ This gives insight—
 we should test more around 60–65.
 This also shows that the width of the posterior distribution is important.
 You can't just report the mean.
+
+#### Single day probability
+
+What is the posterior distribution of a defect occurring given the temperature?
+Lets do 31°.
+
+```python
+prob_31 = logistic(31, beta_samples, alpha_samples)
+```
+
+#### Is the model appropriate?
+
+We choose specific function (logistic) and priors.
+How to know if you have chosen a good model?
+Compare observed data with artificial dataset we simulate.
+If the simulated dataset does not appear statistically similar to the observed,
+then it is a bad model.
+
+Create new stochastic variable
+that is almost exactly the same as the variable that stores the data,
+but without the data.
+
+```python
+N = 10_000
+with pm.Model() as model:
+    beta = pm.Normal("beta", mu=0, tau=1e-3, testval=0)
+    alpha = pm.Normal("beta", mu=0, tau=1e-3, testval=0)
+    p = pm.Deterministic("p", 1.0 / (1. + tt.exp(beta * temperature + alpha)))
+    observed = pm.Bernoulli("bernoulli_obs", p, observed=D)
+
+    # New part
+    simulated = pm.Bernoulli("bernoulli_sim", p, shape=p.tag.test_value.shape)
+
+    step = pm.Metropolis(vars[p])
+    trace = pm.sample(N, step=step)
+```
+
+Can make a _separation plot_.
+Each model is plotted on an individual separation plot.
+For each mode,
+we calculate the proportion of times
+the posterior simulation proposed a value of 1
+for a particular temperature
+($P (\text{Defect} = 1 | t,\alpha,\beta)$)
+by averaging.
+This gives us the posterior probability of a defect at teach point on the dataset.
+
+```python
+simulations = trace["bernoulli_sim"]
+posterior_probability = simulations.mean(axis=0)
+```
+
+![Separation plot](images/2/separation_plot.png)
+
+Line is the probabilities,
+which are sorted.
+Blue bars are defects.
+The black vertical line is the expected number of defects.
+A perfect model would have all blue bars on the right side,
+up to the black bar.
+
+![Different types of separation plots](images/2/separation_plot_types.png)
