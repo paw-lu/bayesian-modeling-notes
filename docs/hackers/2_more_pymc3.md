@@ -830,3 +830,4 @@ A perfect model would have all blue bars on the right side,
 up to the black bar.
 
 ![Different types of separation plots](images/2/separation_plot_types.png)
+
