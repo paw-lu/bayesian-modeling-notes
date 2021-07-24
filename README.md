@@ -24,3 +24,7 @@ Notes on Bayesian modeling using Python NumPy and PyMC3.
 - [Decision trees on priors and likelihood](https://twitter.com/twiecki/status/1418566525225689088)
 
   Tweet by PyMC3 core dev on choosing priors and likelihoods.
+
+- [Bayesian Analysis with Python](https://github.com/aloctavodia/BAP)
+
+  Good general introductory book from core PyMC3 developer.
