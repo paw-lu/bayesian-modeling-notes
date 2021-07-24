@@ -20,3 +20,7 @@ Notes on Bayesian modeling using Python NumPy and PyMC3.
 - [Probabilistic Programming and Bayesian Methods for Hackers](https://github.com/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers)
   
   Interactive textbook on probabilistic programming.
+
+- [Decision trees on priors and likelihood](https://twitter.com/twiecki/status/1418566525225689088)
+
+  Tweet by PyMC3 core dev on choosing priors and likelihoods.
