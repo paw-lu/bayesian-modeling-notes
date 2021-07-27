@@ -21,7 +21,7 @@ Notes on Bayesian modeling using Python NumPy and PyMC3.
   
   Interactive textbook on probabilistic programming.
 
-- [Decision trees on priors and likelihood](https://twitter.com/twiecki/status/1418566525225689088)
+- [Decision trees on priors and likelihood](https://twitter.com/twiecki/status/1419643718110437378)
 
   Tweet by PyMC3 core dev on choosing priors and likelihoods.
 
