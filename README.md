@@ -28,3 +28,7 @@ Notes on Bayesian modeling using Python NumPy and PyMC3.
 - [Bayesian Analysis with Python](https://github.com/aloctavodia/BAP)
 
   Good general introductory book from core PyMC3 developer.
+
+- Bayesian Modeling and Computation in Python
+
+  Upcoming book by core PyMC3 devs
